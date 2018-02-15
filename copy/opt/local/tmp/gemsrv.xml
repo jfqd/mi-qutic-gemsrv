@@ -3,20 +3,30 @@
 <service_bundle type='manifest' name='export'>
   <service name='network/gemsrv' type='service' version='0'>
     <create_default_instance enabled='false'/>
-    <single_instance/>
     <dependency name='fs' grouping='require_all' restart_on='none' type='service'>
       <service_fmri value='svc:/system/filesystem/local'/>
     </dependency>
     <dependency name='networking' grouping='require_all' restart_on='none' type='service'>
       <service_fmri value='svc:/milestone/network:default'/>
     </dependency>
-    <exec_method name='start' type='method' exec='/opt/local/bin/thin -d -p 9292 -R ./config.ru start' timeout_seconds='60'/>
-    <exec_method name='stop' type='method' exec=':kill' timeout_seconds='60'/>
     <method_context project=':default' resource_pool=':default' working_directory='/home/ruby/www/gemserver'>
       <method_credential group='ruby' limit_privileges=':default' privileges=':default' supp_groups=':default' user='ruby' />
       <method_environment>
         <envvar name='HOME' value='/home/ruby/www/gemserver'/>
       </method_environment>
     </method_context>
+    <exec_method name='start' type='method' exec='/opt/local/bin/thin -d -p 9292 -R ./config.ru start' timeout_seconds='60'/>
+    <exec_method name='stop' type='method' exec=':kill' timeout_seconds='60'/>
+    <property_group name='startd' type='framework'>
+      <propval name='ignore_error' type='astring' value='core,signal'/>
+    </property_group>
+    <template>
+      <common_name>
+        <loctext xml:lang='C'>Gemserver</loctext>
+      </common_name>
+      <documentation>
+        <doc_link name='geminabox' uri='https://rubygems.org/gems/geminabox' />
+      </documentation>
+    </template>
   </service>
 </service_bundle>
