@@ -1,0 +1,8 @@
+name="qutic-gemsrv"
+organization="qutic development"
+brand="Ruby Gemserver Instance"
+version="17.4.0"
+description="qutic gemserver image"
+homepage="https://github.com/jfqd/mi-qutic-gemsrv"
+users="root admin ruby"
+base="31ea7dee-0a8d-11e8-9d33-eb63e3201a8b"

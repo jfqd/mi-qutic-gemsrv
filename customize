@@ -1,0 +1,34 @@
+#!/usr/bin/bash
+
+PATH=/opt/local/gnu/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/usr/sbin
+
+# Exit if any commands fail
+set -o errexit
+
+echo "* Setup ruby env"
+echo "gem: --no-rdoc --no-ri " >> /opt/local/etc/gemrc
+gem install geminabox
+
+groupadd -g 1100 ruby
+useradd -m -s /usr/bin/bash -d /home/ruby -u 1100 -g ruby ruby
+passwd -N ruby
+passwd -d ruby
+
+rm -rf /var/zoneinit/tmp
+mkdir -p /home/ruby/www/gemserver
+mv /opt/local/tmp/config.ru /home/ruby/www/gemserver/config.ru
+chown -R ruby:ruby /home/ruby/www
+
+# Configuring image specific packages
+echo "* Configuring image specific packages.";
+svccfg import /opt/local/tmp/gemsrv.xml
+
+# Clean up
+echo "* Cleaning up."
+#pkgin -y remove gmake
+#pkgin -y remove gcc49
+rm /root/customize
+rm -rf /opt/local/tmp
+
+# Prepare image for provisioning
+sm-prepare-image -y
