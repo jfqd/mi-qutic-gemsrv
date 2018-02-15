@@ -1,1 +1,1 @@
-/usr/sbin/svcadm enable network/gemsrv
+/usr/sbin/svcadm enable svc:/network/gemsrv:default
