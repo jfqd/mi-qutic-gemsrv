@@ -8,6 +8,8 @@ set -o errexit
 echo "* Setup ruby env"
 echo "gem: --no-rdoc --no-ri " >> /opt/local/etc/gemrc
 gem install geminabox
+# needs gcc!
+gem install bundler
 gem install thin
 
 groupadd -g 1100 ruby
@@ -28,6 +30,7 @@ svccfg import /opt/local/tmp/gemsrv.xml
 echo "* Cleaning up."
 pkgin -y remove gmake
 pkgin -y remove gcc49
+
 rm /root/customize
 rm -rf /opt/local/tmp
 

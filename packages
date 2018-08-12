@@ -1,7 +1,5 @@
 gcc49
 gmake
 ruby24
-ruby24-daemon_controller
-ruby24-bundler
 nginx
 coreutils
