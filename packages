@@ -1,6 +1,6 @@
 gcc7
 gmake
-ruby25
+ruby24
 nginx
 coreutils
 openssl
