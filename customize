@@ -24,7 +24,7 @@ chown -R ruby:ruby /home/ruby/www
 
 # Configuring image specific packages
 echo "* Configuring image specific packages.";
-svccfg import /opt/local/tmp/gemsrv.xml
+svccfg import /opt/local/lib/svc/manifest/gemsrv.xml
 
 # Clean up
 echo "* Cleaning up."
