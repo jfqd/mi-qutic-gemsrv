@@ -29,7 +29,7 @@ svccfg import /opt/local/lib/svc/manifest/gemsrv.xml
 # Clean up
 echo "* Cleaning up."
 pkgin -y remove gmake
-pkgin -y remove gcc49
+pkgin -y remove gcc7
 
 rm /root/customize
 rm -rf /opt/local/tmp

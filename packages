@@ -1,5 +1,6 @@
-gcc49
+gcc7
 gmake
 ruby25
 nginx
 coreutils
+openssl
