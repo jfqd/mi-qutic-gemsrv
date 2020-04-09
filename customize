@@ -10,6 +10,10 @@ echo "gem: --no-rdoc --no-ri " >> /opt/local/etc/gemrc
 gem install bundler
 gem install geminabox
 gem install thin
+# fix thin
+sed -i "s#/usr/bin/env ruby#/opt/local/bin/ruby#" /opt/local/bin/thin
+# fix rubygems nfs lock issue
+sed -i "s#rescue Errno::ENOLCK#rescue Errno::EINVAL#" /opt/local/lib/ruby/2.5.0/rubygems.rb
 
 groupadd -g 1100 ruby
 useradd -m -s /usr/bin/bash -d /home/ruby -u 1100 -g ruby ruby
