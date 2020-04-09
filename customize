@@ -7,9 +7,9 @@ set -o errexit
 
 echo "* Setup ruby env"
 echo "gem: --no-rdoc --no-ri " >> /opt/local/etc/gemrc
+gem install bundler
 gem install geminabox
-
-ln -nfs /opt/local/lib/ruby/gems/2.5.0/gems/thin-1.7.2/bin/thin /opt/local/bin/thin
+gem install thin
 
 groupadd -g 1100 ruby
 useradd -m -s /usr/bin/bash -d /home/ruby -u 1100 -g ruby ruby

@@ -1,6 +1,4 @@
-# gcc7
-# gmake
-ruby25-eventmachine
-ruby25-thin
+gcc7
+gmake
 nginx
 coreutils
