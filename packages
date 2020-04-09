@@ -4,4 +4,3 @@ ruby25-eventmachine
 ruby25-thin
 nginx
 coreutils
-openssl
