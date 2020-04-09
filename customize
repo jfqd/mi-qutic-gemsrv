@@ -8,8 +8,8 @@ set -o errexit
 echo "* Setup ruby env"
 echo "gem: --no-rdoc --no-ri " >> /opt/local/etc/gemrc
 gem install geminabox
+# gem install bundler
 # needs gcc!
-gem install bundler
 gem install thin
 
 groupadd -g 1100 ruby
