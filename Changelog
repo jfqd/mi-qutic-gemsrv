@@ -1,5 +1,10 @@
 # Changelog
 
+## 20201019.1
+
+* use latest base image
+* use ruby 2.7
+
 ## 20181018.0
 
 * Move to pkgsrc trunk

@@ -1,6 +1,6 @@
 {
   "name":         "qutic-gemsrv",
-  "version":      "20181018.1",
+  "version":      "20201019.1",
   "description":  "qutic gemsrv image",
   "organization": "qutic development",
   "brand":        "Ruby Gemserver Instance",
