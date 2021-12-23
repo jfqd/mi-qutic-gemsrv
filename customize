@@ -7,7 +7,7 @@ set -o errexit
 
 echo "* Setup ruby env"
 echo "gem: --no-document" >> /opt/local/etc/gemrc
-gem install bundler
+# gem install bundler
 gem install geminabox
 gem install thin
 # fix thin
