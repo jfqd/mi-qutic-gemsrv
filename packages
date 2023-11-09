@@ -1,4 +1,5 @@
-gcc7
+gcc12
 gmake
 nginx
 coreutils
+ruby32
