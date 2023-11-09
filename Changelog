@@ -1,5 +1,10 @@
 # Changelog
 
+## 20230910.0
+
+* use latest base image
+* use ruby 3.2
+
 ## 20201019.1
 
 * use latest base image
