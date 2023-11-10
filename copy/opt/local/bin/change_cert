@@ -1,16 +1,16 @@
 #!/usr/bin/bash
 
-if [[ $(uname -s) = "Linux" ]]; then
-  # LX-Brand / Linux
-  NAME=$(basename /etc/nginx/ssl/*.pem .pem)
+if [[ $(uname -s) = "SunOS" ]]; then
+  # SmartOS nginx
+  NAME=$(basename /opt/local/etc/nginx/ssl/*.pem .pem)
   if [[ -n "${NAME}" ]]; then
     (
-      cd /etc/nginx/ssl/
+      cd /opt/local/etc/nginx/ssl/
       openssl pkey -in ${NAME}.pem -out ${NAME}.key
       openssl crl2pkcs7 -nocrl -certfile ${NAME}.pem | openssl pkcs7 -print_certs -out ${NAME}.crt
       chmod 0600 ${NAME}.key
       chmod 0600 ${NAME}.pem
-      systemctl restart nginx
+      svcadm restart nginx
     )
   else
     echo "pem file is missing!"
